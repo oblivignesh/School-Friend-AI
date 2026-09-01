@@ -1,6 +1,6 @@
 # School Friend AI
 
-A K-12 school-only chatbot web app. It refuses to answer anything outside
+A K-12 school-only chatbot web app that provides answers to the students regarding their subjects. It refuses to answer anything outside
 school subjects (no religion, politics, entertainment, sports, adult content,
 tourism, or party planning), teaches by **giving the definition/answer
 straightaway** (with more detail/steps available on request), and uses
