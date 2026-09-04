@@ -102,3 +102,102 @@ header p {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+.hidden {
+  display: none !important;
+}
+
+.auth-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+}
+
+.auth-card > p {
+  margin: 0 0 20px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-form input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d0d5e2;
+  font-size: 1rem;
+}
+
+.auth-form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #4f6df5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-error {
+  color: #d64545;
+  font-size: 0.85rem;
+  margin: 0;
+  min-height: 1.1em;
+}
+
+.auth-toggle {
+  margin: 16px 0 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.auth-toggle button {
+  background: none;
+  border: none;
+  color: #4f6df5;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.user-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.user-bar button {
+  padding: 4px 10px;
+  border: 1px solid #d0d5e2;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+

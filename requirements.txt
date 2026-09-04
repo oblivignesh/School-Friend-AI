@@ -5,3 +5,7 @@ mcp>=1.2,<2
 ddgs>=9.0
 python-dotenv>=1.0
 pydantic>=2.7
+google-genai>=0.3
+numpy>=1.26
+bcrypt>=4.1
+pyjwt>=2.9

@@ -137,15 +137,34 @@ async def run_agent(
     mcp_manager: MCPToolManager,
     history: list[dict],
     user_message: str,
+    memory_context: str | None = None,
 ) -> str:
-    """Run one turn of the conversation, handling any tool-use round-trips."""
+    """Run one turn of the conversation, handling any tool-use round-trips.
+
+    `memory_context` is an optional block of facts/past messages recalled
+    from this student's long-term memory (semantic search over prior
+    sessions), spliced into the system prompt so Claude can personalize
+    answers or reference/correct past mistakes without the full history
+    having to be replayed as messages.
+    """
     messages = list(history) + [{"role": "user", "content": user_message}]
+
+    system_prompt = SYSTEM_PROMPT
+    if memory_context:
+        system_prompt += (
+            "\n\nSTUDENT MEMORY (relevant facts/messages recalled from this "
+            "student's past conversations - use them to personalize your "
+            "answer, build on what they already know, or gently correct a "
+            "past misunderstanding; don't just repeat them verbatim, and "
+            "don't mention 'memory' or 'database' explicitly):\n"
+            f"{memory_context}"
+        )
 
     for _ in range(MAX_TOOL_ROUNDS):
         response = await _client.messages.create(
             model=MODEL,
             max_tokens=MAX_TOKENS,
-            system=SYSTEM_PROMPT,
+            system=system_prompt,
             tools=mcp_manager.tool_defs,
             messages=messages,
         )

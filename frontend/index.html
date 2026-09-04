@@ -7,10 +7,43 @@
 <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <div class="app">
+  <div id="auth-screen" class="auth-screen">
+    <div class="auth-card">
+      <h1>🎓 School Friend AI</h1>
+      <p>Log in to keep your study history and pick up right where you left off.</p>
+
+      <form id="login-form" class="auth-form">
+        <input id="login-username" type="text" placeholder="Username" autocomplete="username" required />
+        <input id="login-password" type="password" placeholder="Password" autocomplete="current-password" required />
+        <button type="submit">Log in</button>
+        <p id="login-error" class="auth-error"></p>
+      </form>
+
+      <p class="auth-toggle">
+        New here? <button type="button" id="show-register">Create an account</button>
+      </p>
+
+      <form id="register-form" class="auth-form hidden">
+        <input id="register-username" type="text" placeholder="Choose a username" autocomplete="username" required />
+        <input id="register-password" type="password" placeholder="Choose a password (6+ chars)" autocomplete="new-password" required />
+        <button type="submit">Sign up</button>
+        <p id="register-error" class="auth-error"></p>
+      </form>
+
+      <p class="auth-toggle hidden" id="show-login-wrap">
+        Already have an account? <button type="button" id="show-login">Log in</button>
+      </p>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
     <header>
       <h1>🎓 School Friend AI</h1>
       <p>Your K-12 study buddy - ask me about math, science, English, history, geography, or computer science!</p>
+      <div class="user-bar">
+        <span id="username-label"></span>
+        <button type="button" id="logout-btn">Log out</button>
+      </div>
     </header>
 
     <div id="chat" class="chat"></div>
